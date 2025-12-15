@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+
+kind: ClusterConfig
+
+metadata:
+  name: demo-cluster-again
+  region: us-east-1
+  version: "1.32"
+
+iam:
+  serviceRoleARN: arn:aws:iam::311344882046:role/eksClusterRole
+
+managedNodeGroups:
+  - name: standard-workers
+    instanceType: t3.medium
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 2
+    iam:
+      instanceRoleARN: arn:aws:iam::311344882046:role/AmazonEKSNodeRole

@@ -1,5 +1,4 @@
 # CICD using GitHub actions
-
 name: CI/CD
 
 # Exclude the workflow to run on changes to the helm chart
@@ -69,7 +68,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
-
+#helm chart update job
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
 
